@@ -5,13 +5,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      .card {
+        display: inline-block;
+        width: 80px;
+        height: 120px;
+        border: solid 2px orange;
+        background-color: rgb(228, 225, 69);
+        padding: 20px;
+        margin: 10px;
+        box-sizing: border-box;
+        text-align: center;
+        font-size: 40px;
+        color: red;
+      }
+
+      #real_cards,
+      #played_cards {
+        border: 1px solid red;
+        min-height: 250px;
+      }
+
+      .effect {
+        /* height: 0; */
+        opacity: 0;
+        transition: all 3s;
+        transform: translateY(100%);
+      }
+
+      .rotate {
+        transform: rotate(3600deg);
+        transition: all 3s ease;
+        opacity: 0;
+      }
+    </style>
   </head>
+
   <body>
     <div id="info"></div>
-    <input type="number" name="" id="card" min="0" max="13" />
-    <button id="set_card">Set Card</button>
+    <!-- <input type="number" name="" id="card" min="0" max="13" />
+    <button id="set_card">Set Card</button> -->
     <button id="reload">Reload</button>
     <div id="cards"></div>
+    <div id="real_cards"></div>
+    <div id="played_cards"></div>
     <script src="./script.js"></script>
   </body>
 </html>
