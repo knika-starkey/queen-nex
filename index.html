@@ -10,19 +10,66 @@
         display: inline-block;
         width: 80px;
         height: 120px;
-        border: solid 2px orange;
-        background-color: rgb(228, 225, 69);
+        border: solid 2px #798b3c;
+        background-color: #d9e6a7;
         padding: 20px;
         margin: 10px;
+        word-wrap: break-word;
         box-sizing: border-box;
         text-align: center;
+        /* text-decoration: wavy; */
+        text-decoration: underline overline;
         font-size: 40px;
-        color: red;
+        color: darkgreen;
+        border-radius: 10%;
       }
-
+      .backCard {
+        background-image: radial-gradient(
+            closest-side,
+            transparent 0%,
+            transparent 75%,
+            #b6cc66 76%,
+            #b6cc66 85%,
+            #edffdb 86%,
+            #edffdb 94%,
+            #ffffff 95%,
+            #ffffff 103%,
+            #d9e6a7 104%,
+            #d9e6a7 112%,
+            #798b3c 113%,
+            #798b3c 121%,
+            #ffffff 122%,
+            #ffffff 130%,
+            #e0ead7 131%,
+            #e0ead7 140%
+          ),
+          radial-gradient(
+            closest-side,
+            transparent 0%,
+            transparent 75%,
+            #b6cc66 76%,
+            #b6cc66 85%,
+            #edffdb 86%,
+            #edffdb 94%,
+            #ffffff 95%,
+            #ffffff 103%,
+            #d9e6a7 104%,
+            #d9e6a7 112%,
+            #798b3c 113%,
+            #798b3c 121%,
+            #ffffff 122%,
+            #ffffff 130%,
+            #e0ead7 131%,
+            #e0ead7 140%
+          );
+        background-size: 40px 40px;
+        background-color: #c8d3a7;
+        background-position: 0 0, 20px 20px;
+      }
       #real_cards,
       #played_cards {
-        border: 1px solid red;
+        border: 1px solid darkgreen;
+        background-color: #f1f7ec;
         min-height: 250px;
       }
 
@@ -38,10 +85,38 @@
         transition: all 3s ease;
         opacity: 0;
       }
+      .opac-card {
+        transition: all 3s ease;
+        transform-origin: 0 0;
+        transform: translateY(-100px);
+        opacity: 0;
+        transition-delay: 0ms;
+      }
+      #congrat {
+        transition: all 5s;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        font-size: 100px;
+        color: #f1f7ec;
+        position: absolute;
+        /* z-index: 9999; */
+        /* background: url("images/loading.gif") no-repeat center center
+          rgba(0, 0, 0, 0.25); */
+        background-color: #798b3c;
+      }
+      .sized {
+        transition: all 3s ease;
+        visibility: hidden;
+        width: 0%;
+        height: 0%;
+        opacity: 0;
+      }
     </style>
   </head>
 
   <body>
+    <div id="congrat" class="sized"></div>
     <div id="info"></div>
     <!-- <input type="number" name="" id="card" min="0" max="13" />
     <button id="set_card">Set Card</button> -->

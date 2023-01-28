@@ -12,6 +12,8 @@ let rel = document.getElementById("reload");
 let realCards = document.getElementById("real_cards");
 let playedCardsField = document.getElementById("played_cards");
 
+let congratDiv = document.getElementById("congrat");
+
 let playedCards = [];
 
 let isGame = true;
@@ -35,15 +37,21 @@ shuffle(cards);
 function showCards(cards) {
   return cards.join(", ");
 }
+function tidy(s) {
+  if (!isNaN(s)) {
+    let ne = "&#9824;".repeat(s);
+    return ne;
+  } else return s;
+}
 
 cardsField.innerHTML = showCards(cards);
 
 function generateCards(cards, cardsF, show = false) {
   cardsF.innerHTML = "";
   for (let i = 0; i < cards.length; i++) {
-    cardsF.innerHTML += `<div id="rc_${cards[i]}" class="card">${
-      show ? cards[i] : ""
-    }</div>`;
+    cardsF.innerHTML += `<div id="rc_${cards[i]}" class="card ${
+      show ? "" : "backCard"
+    } ">${show ? cards[i] : ""}</div>`;
   }
 }
 
@@ -122,6 +130,8 @@ function checkWin(who, card) {
 
     stop();
     fly();
+    congratDiv.classList.remove("sized");
+    congratDiv.innerHTML = who + " win!";
     return true;
   }
   return false;
@@ -137,7 +147,9 @@ function stop() {
 function fly() {
   let card_elements = document.getElementsByClassName("card");
   for (let i = 0; i < card_elements.length; i++) {
-    card_elements[i].classList.add("rotate");
+    card_elements[i].classList.add("opac-card");
+    // card_elements[i].classList.add(`transition-delay: ${i * 50}ms;`);
+    card_elements[i].style.transitionDelay = `${i * 200}ms`;
   }
 }
 
